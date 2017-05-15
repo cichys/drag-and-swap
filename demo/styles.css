@@ -1,0 +1,30 @@
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+
+.swapperbox {
+    width: 200px;
+    height: 200px;
+    float: left;
+    border: 2px solid gray;
+    margin: 20px;
+    cursor: move;
+}
+.swapperbox--large {
+    width: 400px;
+}
+
+.swapperbox--over {
+    border: 2px dashed gray;
+}
+
+.swapperbox--moving {
+    opacity: 0.5;
+}
