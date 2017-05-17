@@ -1,5 +1,9 @@
-var a = new Swapper();
-a.disable();
+var a = new Swapper({
+    isEnabled: true,
+    onChange: function (boxes) {
+        console.log(boxes);
+    }
+});
 
 
 

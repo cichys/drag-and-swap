@@ -1,14 +1,18 @@
 export default class Swapper {
 
-    constructor() {
+    constructor(config) {
         this._name = 'Swapper';
 
-        this.isEnabled = true;
+        this.config = config || {};
+
+        this.isEnabled = config.isEnabled !== undefined ? config.isEnabled : true;
         this.dragSrcEl = null;
         this.boxes = document.querySelectorAll('.swapperbox');
 
         [].forEach.call(this.boxes, (box) => {
-            box.setAttribute('draggable', this.isEnabled);
+            if (this.isEnabled) {
+                box.setAttribute('draggable', this.isEnabled);
+            }
             box.addEventListener('dragstart', e => this.handleDragStart(e), false);
             box.addEventListener('dragenter', e => this.handleDragEnter(e), false);
             box.addEventListener('dragover', e => this.handleDragOver(e), false);
@@ -77,6 +81,11 @@ export default class Swapper {
 
             e.target.id = this.dragSrcEl.id;
             this.dragSrcEl.id = oldId;
+
+            // Callback when it's done
+            if (this.config.onChange) {
+                this.config.onChange(this.boxes);
+            }
         }
 
         return false;
