@@ -1,17 +1,16 @@
-var a = new Swapper({
+var swapper = new Swapper({
+    elementClass: 'swapperbox',
     isEnabled: true,
     onChange: function (boxes) {
         console.log(boxes);
     }
 });
 
-
-
 document.getElementById('enable').onclick = () => {
-    a.enable();
+    swapper.enable();
 };
 document.getElementById('disable').onclick = () => {
-    a.disable();
+    swapper.disable();
 };
 
 

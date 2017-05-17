@@ -16,15 +16,16 @@
     border: 2px solid gray;
     margin: 20px;
     cursor: move;
+    background: yellowgreen;
 }
 .swapperbox--large {
     width: 400px;
 }
 
-.swapperbox--over {
+.swapper--over {
     border: 2px dashed gray;
 }
 
-.swapperbox--moving {
+.swapper--moving {
     opacity: 0.5;
 }

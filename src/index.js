@@ -7,7 +7,7 @@ export default class Swapper {
 
         this.isEnabled = config.isEnabled !== undefined ? config.isEnabled : true;
         this.dragSrcEl = null;
-        this.boxes = document.querySelectorAll('.swapperbox');
+        this.boxes = document.querySelectorAll('.' + this.config.elementClass);
 
         [].forEach.call(this.boxes, (box) => {
             if (this.isEnabled) {
@@ -27,7 +27,7 @@ export default class Swapper {
     }
 
     handleDragStart(e) {
-        e.target.classList.add('moving');
+        e.target.classList.add('swapper-moving');
 
         this.dragSrcEl = e.target;
 
@@ -47,12 +47,12 @@ export default class Swapper {
 
     handleDragEnter(e) {
         // current hover target
-        e.target.classList.add('swapperbox--over');
+        e.target.classList.add('swapper--over');
     }
 
     handleDragLeave(e) {
         // previous target element
-        e.target.classList.remove('swapperbox--over');
+        e.target.classList.remove('swapper--over');
     }
 
     handleDrop(e) {
@@ -93,8 +93,8 @@ export default class Swapper {
 
     handleDragEnd(e) {
         [].forEach.call(this.boxes, function (col) {
-            col.classList.remove('swapperbox--over');
-            col.classList.remove('swapperbox--moving');
+            col.classList.remove('swapper--over');
+            col.classList.remove('swapper--moving');
         });
     }
 
