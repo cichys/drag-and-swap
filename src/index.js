@@ -3,11 +3,12 @@ export default class Swapper {
     constructor() {
         this._name = 'Swapper';
 
+        this.isEnabled = true;
         this.dragSrcEl = null;
         this.boxes = document.querySelectorAll('.swapperbox');
 
         [].forEach.call(this.boxes, (box) => {
-            box.setAttribute('draggable', true);
+            box.setAttribute('draggable', this.isEnabled);
             box.addEventListener('dragstart', e => this.handleDragStart(e), false);
             box.addEventListener('dragenter', e => this.handleDragEnter(e), false);
             box.addEventListener('dragover', e => this.handleDragOver(e), false);
@@ -88,4 +89,21 @@ export default class Swapper {
         });
     }
 
+    enable() {
+        this.isEnabled = true;
+        [].forEach.call(this.boxes, (box) => {
+            box.setAttribute('draggable', true);
+        });
+    }
+
+    disable() {
+        this.isEnabled = false;
+        [].forEach.call(this.boxes, (box) => {
+            box.removeAttribute('draggable');
+        });
+    }
+
+    _returnFalse() {
+        return false;
+    }
 }
