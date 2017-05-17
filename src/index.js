@@ -7,7 +7,7 @@ export default class Swapper {
 
         this.isEnabled = config.isEnabled !== undefined ? config.isEnabled : true;
         this.dragSrcEl = null;
-        this.boxes = document.querySelectorAll('.' + this.config.elementClass);
+        this.boxes = document.querySelectorAll(this.config.container + ' ' + this.config.element);
 
         [].forEach.call(this.boxes, (box) => {
             if (this.isEnabled) {
@@ -46,6 +46,19 @@ export default class Swapper {
     }
 
     handleDragEnter(e) {
+        // if (this.dragSrcEl && e.target) {
+        //     let a = this.dragSrcEl.closest(this.config.container);
+
+        //     let b = e.target.closest(this.config.container);
+
+        //     console.log(a, b);
+        //     console.log(a.innerHTML === b.innerHTML);
+        //     if (a.innerHTML !== b.innerHTML) {
+        //         e.target.classList.remove('swapper--over');
+        //         return;
+        //     }
+        // }
+
         // current hover target
         e.target.classList.add('swapper--over');
     }
@@ -61,7 +74,7 @@ export default class Swapper {
         }
 
         // Don't do anything if dropping the same column we're dragging.
-        if (this.dragSrcEl !== e.target) {
+        if (this.dragSrcEl && e.target && this.dragSrcEl !== e.target) {
             // Set the source column's HTML to the HTML of the column we dropped on.
             this.dragSrcEl.innerHTML = e.target.innerHTML;
             e.target.innerHTML = e.dataTransfer.getData('text/html');

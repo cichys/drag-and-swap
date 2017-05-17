@@ -9,6 +9,10 @@
   -webkit-user-drag: element;
 }
 
+.row {
+    clear: both;
+}
+
 .swapperbox {
     width: 200px;
     height: 200px;

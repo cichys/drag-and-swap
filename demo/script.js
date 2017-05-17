@@ -1,5 +1,15 @@
 var swapper = new Swapper({
-    elementClass: 'swapperbox',
+    container: '#swappercontainer',
+    element: '.swapperbox',
+    isEnabled: true,
+    onChange: function (boxes) {
+        console.log(boxes);
+    }
+});
+
+var swapper2 = new Swapper({
+    container: '#swappercontainer2',
+    element: '.swapperbox',
     isEnabled: true,
     onChange: function (boxes) {
         console.log(boxes);
