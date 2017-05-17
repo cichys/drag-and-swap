@@ -25,6 +25,9 @@
 .swapperbox--large {
     width: 400px;
 }
+.swapperbox--second {
+    background: paleturquoise;
+}
 
 .swapper--over {
     border: 2px dashed gray;

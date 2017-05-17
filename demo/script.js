@@ -3,7 +3,7 @@ var swapper = new Swapper({
     element: '.swapperbox',
     isEnabled: true,
     onChange: function (boxes) {
-        console.log(boxes);
+        // console.log(boxes);
     }
 });
 
@@ -12,7 +12,7 @@ var swapper2 = new Swapper({
     element: '.swapperbox',
     isEnabled: true,
     onChange: function (boxes) {
-        console.log(boxes);
+        // console.log(boxes);
     }
 });
 
