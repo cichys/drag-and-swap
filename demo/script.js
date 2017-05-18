@@ -1,28 +1,30 @@
-var swapper = new Swapper({
+var swappers = [];
+
+swappers.push(new Swapper({
     container: '#swappercontainer',
     element: '.swapperbox',
     isEnabled: true,
     onChange: function (boxes) {
         // console.log(boxes);
     }
-});
+}));
 
-var swapper2 = new Swapper({
+swappers.push(new Swapper({
     container: '#swappercontainer2',
     element: '.swapperbox',
     isEnabled: true,
     onChange: function (boxes) {
         // console.log(boxes);
     }
-});
+}));
 
 document.getElementById('enable').onclick = () => {
-    swapper.enable();
+    swappers.forEach((s) => {
+        s.enable();
+    });
 };
 document.getElementById('disable').onclick = () => {
-    swapper.disable();
+    swappers.forEach((s) => {
+        s.disable();
+    });
 };
-
-
-
-

@@ -28,7 +28,6 @@ export default class Swapper {
 
     handleDragStart(e) {
         e.target.classList.add('swapper-moving');
-
         this.dragSrcEl = e.target;
 
         e.dataTransfer.effectAllowed = 'move';
@@ -46,6 +45,9 @@ export default class Swapper {
     }
 
     handleDragEnter(e) {
+        if (!this.dragSrcEl || !e.target || this.dragSrcEl === e.target) {
+            return;
+        }
         // if (this.dragSrcEl && e.target) {
         //     let a = this.dragSrcEl.closest(this.config.container);
 
