@@ -2,7 +2,7 @@
   "name": "drag-and-swap",
   "version": "0.0.1",
   "description": "Vanilla JS library that allows to swap 2 elements in a page by drag and drop",
-  "main": "lib/dragandswap.js",
+  "main": "lib/DragAndSwap.js",
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev"
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cichys/swapper.git"
+    "url": "https://github.com/cichys/drag-and-swap.git"
   },
   "keywords": [
     "es6",
@@ -33,7 +33,7 @@
   "author": "https://github.com/cichys",
   "license": "MIT",
     "bugs": {
-    "url": "https://github.com/cichys/swapper/issues"
+    "url": "https://github.com/cichys/drag-and-swap/issues"
   },
-  "homepage": "https://github.com/cichys/swapper"
+  "homepage": "https://github.com/cichys/drag-and-swap"
 }
