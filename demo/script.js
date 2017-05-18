@@ -1,30 +1,16 @@
-var swappers = [];
-
-swappers.push(new Swapper({
-    container: '#swappercontainer',
+var swapper = new Swapper({
+    containers: ['#swappercontainer', '#swappercontainer2'],
     element: '.swapperbox',
     isEnabled: true,
+    swapBetweenContainers: true,
     onChange: function (boxes) {
         // console.log(boxes);
     }
-}));
-
-swappers.push(new Swapper({
-    container: '#swappercontainer2',
-    element: '.swapperbox',
-    isEnabled: true,
-    onChange: function (boxes) {
-        // console.log(boxes);
-    }
-}));
+});
 
 document.getElementById('enable').onclick = () => {
-    swappers.forEach((s) => {
-        s.enable();
-    });
+    swapper.enable();
 };
 document.getElementById('disable').onclick = () => {
-    swappers.forEach((s) => {
-        s.disable();
-    });
+    swapper.disable();
 };

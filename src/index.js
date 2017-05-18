@@ -7,7 +7,10 @@ export default class Swapper {
 
         this.isEnabled = config.isEnabled !== undefined ? config.isEnabled : true;
         this.dragSrcEl = null;
-        this.boxes = document.querySelectorAll(this.config.container + ' ' + this.config.element);
+
+        this.boxes = [];
+
+        this._findElementsInThePage();
 
         [].forEach.call(this.boxes, (box) => {
             if (this.isEnabled) {
@@ -48,18 +51,13 @@ export default class Swapper {
         if (!this.dragSrcEl || !e.target || this.dragSrcEl === e.target) {
             return;
         }
-        // if (this.dragSrcEl && e.target) {
-        //     let a = this.dragSrcEl.closest(this.config.container);
 
-        //     let b = e.target.closest(this.config.container);
-
-        //     console.log(a, b);
-        //     console.log(a.innerHTML === b.innerHTML);
-        //     if (a.innerHTML !== b.innerHTML) {
-        //         e.target.classList.remove('swapper--over');
-        //         return;
-        //     }
-        // }
+        if (this.dragSrcEl && e.target) {
+            if (!this._hasSameContainers(this.dragSrcEl, e.target)) {
+                e.target.classList.remove('swapper--over');
+                return;
+            }
+        }
 
         // current hover target
         e.target.classList.add('swapper--over');
@@ -75,8 +73,8 @@ export default class Swapper {
             e.stopPropagation(); // stops the browser from redirecting.
         }
 
-        // Don't do anything if dropping the same column we're dragging.
-        if (this.dragSrcEl && e.target && this.dragSrcEl !== e.target) {
+        // Don't do anything if dropping the same elements we're dragging.
+        if (this._areDifferentElements(this.dragSrcEl, e.target) && this._hasSameContainers(this.dragSrcEl, e.target)) {
             // Set the source column's HTML to the HTML of the column we dropped on.
             this.dragSrcEl.innerHTML = e.target.innerHTML;
             e.target.innerHTML = e.dataTransfer.getData('text/html');
@@ -113,6 +111,17 @@ export default class Swapper {
         });
     }
 
+    _findElementsInThePage() {
+        let selector = '';
+
+        this.config.containers.forEach((c) => {
+            selector += c + ' ' + this.config.element + ',';
+        });
+        selector = selector.slice(0, -1);
+
+        this.boxes = document.querySelectorAll(selector);
+    }
+
     enable() {
         this.isEnabled = true;
         [].forEach.call(this.boxes, (box) => {
@@ -127,7 +136,26 @@ export default class Swapper {
         });
     }
 
-    _returnFalse() {
-        return false;
+    _findContainer(element) {
+        let container = null;
+
+        this.config.containers.every((c) => {
+            container = element.closest(c);
+            return !container; // when false exit from loop
+        });
+
+        return container;
+    }
+
+    _areDifferentElements(el1, el2) {
+        return el1 && el2 && el1 !== el2;
+    }
+
+    _hasSameContainers(el1, el2) {
+        let c1 = this._findContainer(el1);
+
+        let c2 = this._findContainer(el2);
+
+        return (c1 && c2 && c1.innerHTML === c2.innerHTML);
     }
 }
