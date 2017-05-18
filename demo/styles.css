@@ -31,7 +31,3 @@
 .swapper--over {
     border: 2px dashed gray;
 }
-
-.swapper--moving {
-    opacity: 0.5;
-}

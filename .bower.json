@@ -1,0 +1,17 @@
+{
+  "name": "swapper",
+  "version": "0.0.1",
+  "authors": [
+    "https://github.com/cichys"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

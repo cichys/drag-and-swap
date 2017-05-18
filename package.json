@@ -1,13 +1,11 @@
 {
   "name": "Swapper",
   "version": "0.0.1",
-  "description": "",
-  "main": "lib/library.js",
+  "description": "Vanilla JS library to swap two elements by drag and drop",
+  "main": "lib/swapper.js",
   "scripts": {
     "build": "webpack --env build",
-    "dev": "webpack --progress --colors --watch --env dev",
-    "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
-    "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+    "dev": "webpack --progress --colors --watch --env dev"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
@@ -16,26 +14,26 @@
     "babel-loader": "7.0.0",
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-preset-es2015": "6.24.1",
-    "chai": "3.5.0",
     "eslint": "3.19.0",
     "eslint-loader": "1.7.1",
-    "mocha": "3.3.0",
     "webpack": "2.4.1",
     "yargs": "7.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/krasimir/webpack-library-starter.git"
+    "url": "https://github.com/cichys/swapper.git"
   },
   "keywords": [
-    "webpack",
     "es6",
-    "starter",
     "library",
     "universal",
     "umd",
     "commonjs"
   ],
-  "author": "",
-  "license": "MIT"
+  "author": "https://github.com/cichys",
+  "license": "MIT",
+    "bugs": {
+    "url": "https://github.com/cichys/swapper/issues"
+  },
+  "homepage": "https://github.com/cichys/swapper"
 }

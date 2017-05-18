@@ -1,6 +1,8 @@
-### Swapper
+# Swapper
 
 Vanilla JS library to swap two elements in a page by drag and drop
+
+[Demo on Plunker](https://plnkr.co/edit/unb0mgY99oG4ofj1vVgU?p=preview)
 
 
 ```javascript
@@ -22,4 +24,9 @@ document.getElementById('enable').onclick = () => {
 document.getElementById('disable').onclick = () => {
     swapper.disable();
 };
+```
+
+```
+npm run build
+npm run dev
 ```
