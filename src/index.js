@@ -1,7 +1,7 @@
-export default class Swapper {
+export default class DragAndSwap {
 
     constructor(config) {
-        this._name = 'Swapper';
+        this._name = 'DragAndSwap';
 
         this.config = config || {};
 

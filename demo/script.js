@@ -1,4 +1,4 @@
-var swapper = new Swapper({
+var dragAndSwap = new DragAndSwap({
     containers: ['#swappercontainer', '#swappercontainer2'],
     element: '.swapperbox',
     isEnabled: true,
@@ -9,8 +9,8 @@ var swapper = new Swapper({
 });
 
 document.getElementById('enable').onclick = () => {
-    swapper.enable();
+    dragAndSwap.enable();
 };
 document.getElementById('disable').onclick = () => {
-    swapper.disable();
+    dragAndSwap.disable();
 };

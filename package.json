@@ -1,8 +1,8 @@
 {
-  "name": "Swapper",
+  "name": "drag-and-swap",
   "version": "0.0.1",
-  "description": "Vanilla JS library to swap two elements by drag and drop",
-  "main": "lib/swapper.js",
+  "description": "Vanilla JS library that allows to swap 2 elements in a page by drag and drop",
+  "main": "lib/dragandswap.js",
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev"
