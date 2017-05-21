@@ -5,6 +5,18 @@ Vanilla JS library that allows to swap 2 elements in a page by drag and drop
 [Demo on Plunker](https://plnkr.co/edit/unb0mgY99oG4ofj1vVgU?p=preview)
 
 
+## Installation
+
+With npm:
+```
+npm install drag-and-swap
+```
+
+With bower:
+```
+bower install drag-and-swap
+```
+
 ## Usage
 
 Initialize library
